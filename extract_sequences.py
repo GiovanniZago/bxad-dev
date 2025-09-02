@@ -10,8 +10,9 @@ import psutil
 import pprint
 import json
 
+LUMI_NUMBER = 2000
 COLLIDING_BUNCHES = True
-LENGTH = 4
+LENGTH = 2
 
 DATA_PATH = "/home/almalinux/bxad-dev/data"
 OUTPUT_PATH = "/home/almalinux/bxad-dev/data-sequences"
@@ -30,7 +31,7 @@ if __name__ == "__main__":
     """
     process = psutil.Process(os.getpid())
 
-    config.set_data_path(DATA_PATH + "/output_1000.root")
+    config.set_data_path(DATA_PATH + f"/output_{LUMI_NUMBER}.root")
 
     events = uproot.open(config.DATA_PATH + ":" + config.DATA_TTREE)
     events_metadata = uproot.open(config.DATA_PATH + ":" + config.METADATA_TTREE)
@@ -184,10 +185,10 @@ if __name__ == "__main__":
     L1BMTFStub = ak.zip({name[11:]: array for name, array in zip(ak.fields(data_sequences), ak.unzip(data_sequences)) if name.startswith("L1BMTFStub_")})
     
     if COLLIDING_BUNCHES:
-        file_out_name = OUTPUT_PATH + f"/output_1000_seq{LENGTH}.root"
+        file_out_name = OUTPUT_PATH + f"/output_{LUMI_NUMBER}_seq{LENGTH}.root"
 
     else:
-        file_out_name = OUTPUT_PATH + f"/output_1000_seq{LENGTH}_nc.root"
+        file_out_name = OUTPUT_PATH + f"/output_{LUMI_NUMBER}_seq{LENGTH}_nc.root"
 
     file_out = uproot.recreate(file_out_name)
     file_out["L1BMTFStubSequences"] = {
