@@ -11,8 +11,8 @@ import pprint
 import json
 
 LUMI_NUMBER = 2000
-COLLIDING_BUNCHES = True
-LENGTH = 2
+COLLIDING_BUNCHES = False
+LENGTH = 3
 
 DATA_PATH = "/home/almalinux/bxad-dev/data"
 OUTPUT_PATH = "/home/almalinux/bxad-dev/data-sequences"
