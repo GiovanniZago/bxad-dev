@@ -15,6 +15,7 @@ COLLIDING_BUNCHES = False
 LENGTH = 3
 
 DATA_PATH = "/home/almalinux/bxad-dev/data"
+METADATA_PATH = "/home/almalinux/bxad-dev/metadata"
 OUTPUT_PATH = "/home/almalinux/bxad-dev/data-sequences"
 
 def get_fill_data(json_file: str):
